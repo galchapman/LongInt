@@ -13,7 +13,8 @@ LONGINT* newLongInt();
 LONGINT* _allocLongInt(size_t);
 LONGINT* _reallocLongInt(LONGINT*, size_t);
 
-__cdecl void uinc(LONGINT*);
+__cdecl size_t len(LONGINT*);
+__cdecl void inc(LONGINT*);
 
 #ifdef __cplusplus
 }
