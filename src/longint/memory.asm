@@ -18,11 +18,11 @@ newLongInt:
 ; allocate new long int vector
 ; @rcx: size of buffer (in qwords)
 _allocLongInt:
-	sub rsp, 16
+	sub rsp, 40
 	sal rcx, 3 ; arg *= sizeof(uint64_t)
 	add rcx, 8 ; malloc(arg + sizeof(size_t))
 	call malloc
-	add rsp, 16
+	add rsp, 40
 	mov qword[rax], 0
 	ret
 ; reallocate long int vector

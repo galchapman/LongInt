@@ -14,6 +14,8 @@ LONGINT* _allocLongInt(size_t);
 LONGINT* _reallocLongInt(LONGINT*, size_t);
 
 __cdecl size_t len(LONGINT*);
+__cdecl size_t cast_uint64(LONGINT*);
+
 __cdecl void inc(LONGINT*);
 
 #ifdef __cplusplus

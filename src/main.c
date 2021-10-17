@@ -6,10 +6,12 @@
 int main(void) {
 	LONGINT* n = newLongInt();
 	
-	// inc(n);
-	_reallocLongInt(n, 2);
+	inc(n);
+	((size_t*)n)[1] = -1;
+	inc(n);
+	inc(n);
 
-	printf("size: %llx\n", *(size_t*)n);
+	printf("size: %llx, value: %lld\n", *(size_t*)n, cast_uint64(n));
 
 	if ((size_t)n > 1 << 8)
 		free(n);
