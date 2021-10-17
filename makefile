@@ -5,7 +5,11 @@ LD=ld
 
 ASMFLAGS=-f win64
 
-all:
+all: build/main.exe
+	build/main.exe
+
+build/main.exe: src/main.c build/longint.o
+	$(CC) -o $@ $^ -Isrc/longint/headers
 
 build/longint.o: $(patsubst src/longint/%.asm, build/longint/%.o, $(wildcard src/longint/*.asm))
 	ld -o $@ $^
