@@ -1,0 +1,8 @@
+# C/C++ outputs files
+*.o
+*.elf
+*.out
+*.so
+*.a
+
+build/
