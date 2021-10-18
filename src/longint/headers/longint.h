@@ -13,8 +13,8 @@ LONGINT* newLongInt();
 LONGINT* _allocLongInt(size_t);
 LONGINT* _reallocLongInt(LONGINT*, size_t);
 
-__cdecl size_t len(LONGINT*);
-__cdecl size_t cast_uint64(LONGINT*);
+__cdecl size_t len(const LONGINT*);
+__cdecl size_t cast_uint64(const LONGINT*);
 
 __cdecl void inc(LONGINT*);
 __cdecl void _inc_offset(LONGINT*, size_t off);

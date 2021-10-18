@@ -10,7 +10,7 @@ extern _reallocLongInt
 ; @rcx: struct ptr
 ; @rdx: offset
 _inc_offset:
-	; rax = rcx + rdi * sizeof(uint64_t)
+	; rax = rcx + rdx * sizeof(uint64_t)
 	mov rax, rdx
 	sal rax, 3 ; mul rax, 8
 	add rax, rcx
@@ -28,7 +28,7 @@ inc_loop:
 	inc rdx
 	add rax, 8
 	; increment value
-	inc qword[rax]
+	add qword[rax], 1
 	; repet if carry
 	jc inc_loop
 
