@@ -17,6 +17,7 @@ __cdecl size_t len(LONGINT*);
 __cdecl size_t cast_uint64(LONGINT*);
 
 __cdecl void inc(LONGINT*);
+__cdecl void _inc_offset(LONGINT*, size_t off);
 
 #ifdef __cplusplus
 }
