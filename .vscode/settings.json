@@ -4,6 +4,7 @@
 		"stddef.h": "c",
 		"stdint.h": "c",
 		"stdlib.h": "c",
-		"stdio.h": "c"
+		"stdio.h": "c",
+		"longint.h": "c"
 	}
 }

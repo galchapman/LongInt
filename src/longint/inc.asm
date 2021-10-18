@@ -3,19 +3,29 @@ BITS 64
 section .text
 
 global inc
+global _inc_offset
 extern _reallocLongInt
+
+; increment vector by 1 from offset
+; @rcx: struct ptr
+; @rdx: offset
+_inc_offset:
+	; rax = rcx + rdi * sizeof(uint64_t)
+	mov rax, rdx
+	sal rax, 3 ; mul rax, 8
+	add rax, rcx
+	jmp inc_loop
 
 ; increment vector by 1
 ; @rcx: struct ptr
 inc:
-	
 	mov rax, rcx ; rax, data ptr
-	mov rdi, 0 ; counter
+	mov rdx, 0 ; counter
 inc_loop:
-	cmp qword [rcx], rdi ; end of vector
+	cmp qword [rcx], rdx ; end of vector
 	je append_one
 	; increse varibales
-	inc rdi
+	inc rdx
 	add rax, 8
 	; increment value
 	inc qword[rax]
@@ -25,8 +35,8 @@ inc_loop:
 	jmp exit
 
 append_one:
-	inc rdi
-	mov rdx, rdi
+	inc rdx
+	mov rdi, rdx
 	call _reallocLongInt
 	sal rdi, 3
 	mov qword[rax+rdi], 1
